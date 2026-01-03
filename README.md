@@ -1,73 +1,59 @@
-# React + TypeScript + Vite
+# TAMAKOECHI 🥚
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+這是一個使用 React + TypeScript + Vite 製作的網頁版塔麻可吉 (Tamagotchi)。
+復古的像素風格，搭配粉紅果凍質感的機身設計。
 
-Currently, two official plugins are available:
+🔗 **線上試玩**: [點擊這裡前往 GitHub Pages](https://bbskiz0405.github.io/TAMAKOE/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 📅 開發進度日誌 (Dev Log)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### ✅ 已完成 (2026-01-03)
+*   **環境建置**: 
+    *   [x] 初始化 Vite + React + TypeScript 專案。
+    *   [x] 設定 `vite.config.ts` (base path) 以支援 GitHub Pages。
+*   **核心遊戲邏輯**:
+    *   [x] **狀態系統**: 實作飽食度 (Hunger)、快樂度 (Happiness)、生命值 (Health)。
+    *   [x] **生命週期**: 蛋 (Egg) -> 幼年 (Child) -> 成年 (Adult) -> 死亡 (Dead)。
+    *   [x] **互動功能**: 餵食 (Feed)、玩耍 (Play)、打掃 (Clean)、治療 (Heal)。
+    *   [x] **排泄機制**: 隨機大便，不清理會扣血。
+*   **介面設計 (UI/UX)**:
+    *   [x] **風格**: 實作「粉紅果凍」復古機身與像素 (Pixel Art) 風格。
+    *   [x] **動畫**: 寵物跳動動畫、按鈕按壓回饋。
+    *   [x] **字體**: 引入 Google Fonts `Press Start 2P` 像素字體。
+*   **部署與版控**:
+    *   [x] 設定 `gh-pages` 自動部署腳本。
+    *   [x] 整理 Git 分支 (Master 為開發主線, gh-pages 為發布線)。
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 待辦事項 (To-Do List)
+*這些是下次開發可以考慮的方向：*
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1.  **💾 存檔功能 (Data Persistence)**
+    *   目前重新整理網頁，寵物就會重置。
+    *   目標：使用 `localStorage` 將寵物狀態存起來，讓它在你關掉視窗後還能「活著」。
+2.  **🔊 音效 (Sound Effects)**
+    *   加入 8-bit 的按鈕音效、進食聲、進化音效。
+3.  **🌙 睡眠模式 (Sleep Mode)**
+    *   加入關燈功能，讓寵物睡覺（暫停飢餓度下降）。
+4.  **🌲 更多進化路線**
+    *   根據照顧的好壞（例如大便沒清的次數），進化成不同的成年型態。
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🛠️ 如何開始 (Setup)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. 安裝依賴:
+   ```bash
+   npm install
+   ```
+2. 啟動本地開發伺服器:
+   ```bash
+   npm run dev
+   ```
+3. 部署到 GitHub Pages:
+   ```bash
+   npm run deploy
+   ```
