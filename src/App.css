@@ -109,7 +109,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 80px;
+  font-size: 40px;
   animation: bounce 2s infinite ease-in-out;
   position: relative;
   z-index: 1;
@@ -178,11 +178,31 @@ body {
   font-weight: bold;
 }
 
+.extra-controls {
+  margin-top: 30px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.mute-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.mute-btn:hover {
+  opacity: 1;
+}
+
 .game-btn.reset {
   background-color: #ff6b6b;
   box-shadow: 0 4px 0 #c92a2a;
   color: white;
-  margin-top: 20px;
+  margin-top: 0; /* Override default */
   width: auto;
   height: auto;
   padding: 10px 20px;
